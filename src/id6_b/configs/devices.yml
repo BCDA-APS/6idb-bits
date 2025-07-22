@@ -72,3 +72,21 @@ hklpy2.creator:
 # - name: lockin
 #   prefix: '4idd:SRS810:1:'
 #   labels: [ "detectors", "baseline" ]
+
+# apstools.devices.motor_factory.mb_creator:
+#   - name: bundle
+#     prefix: "gp:"
+#     class_name: MotorBundle
+#     motors:
+#         x: "m1"
+#         y: "m2"
+#         z: "m3"
+#         alpha: None
+#         bravo: None
+#         charlie: None
+#   - name: sample_stage
+#     class_name: SampleStage
+#     motors:
+#         x: "IOC:m25"
+#         y: None
+#         theta: None
