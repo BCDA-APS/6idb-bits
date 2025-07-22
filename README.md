@@ -23,6 +23,12 @@ pip install -e .
 
 ## IPython console Start
 
+Activate the conda environment:
+
+```bash
+conda activate polar-bit
+```
+
 To start the bluesky instrument session in a ipython execute the next command in a terminal:
 
 ```bash
@@ -35,7 +41,7 @@ Start JupyterLab, a Jupyter notebook server, or a notebook, VSCode.
 ## Starting the BITS Package
 
 ```py
-from YOUR_INSTRUMENT_NAME.startup import *
+from id6_b.startup import *
 ```
 
 ## Run Sim Plan Demo
