@@ -13,6 +13,8 @@ Includes:
 import logging
 from pathlib import Path
 
+import gi  # noqa
+import hklpy2
 from apsbits.core.best_effort_init import init_bec_peaks
 from apsbits.core.catalog_init import init_catalog
 from apsbits.core.instrument_init import make_devices
@@ -31,6 +33,7 @@ from apsbits.utils.config_loaders import load_config
 from apsbits.utils.helper_functions import register_bluesky_magics
 from apsbits.utils.helper_functions import running_in_queueserver
 from apsbits.utils.logging_setup import configure_logging
+from hklpy2.backends.hkl_soleil import libhkl
 
 from id6_b.plans.sim_plans import sim_count_plan  # noqa
 from id6_b.plans.sim_plans import sim_print_plan  # noqa
@@ -69,6 +72,8 @@ register_bluesky_magics()
 bec, peaks = init_bec_peaks(iconfig)
 cat = init_catalog(iconfig)
 RE, sd = init_RE(iconfig, bec_instance=bec, cat_instance=cat)
+RE.md["versions"]["hklpy2"] = hklpy2.__version__
+RE.md["versions"]["hkl_soleil"] = libhkl.VERSION
 
 
 # Optional Nexus callback block
