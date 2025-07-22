@@ -13,6 +13,7 @@ hklpy2.creator:
   geometry: E6C
   labels: [ "diffractometer", "hklpy2" ]
 #  prefix: "zgp:"  # FIXME Use correct PVs
+  reals: [ "mu", "eta", "chi", "phi", "nu", "delta" ]  # simulator
 #  reals:
 #    # MUST provide in canonical order
 #    # No defined motor assignments, pick different than fourc (m29-32)
@@ -23,6 +24,10 @@ hklpy2.creator:
 #    nu: m27
 #    delta: m28
 
+# TODO: Lakeshore, SRS570, Keithley DMM, Keithley source meter, capacitance bridge 2700
+# https://bcda-aps.github.io/apstools/latest/api/_devices.html#devices-other-support
+# BPM: https://github.com/BCDA-APS/8id-bits/blob/4b573f0ae35f6dc5982ff5700221dd704f66d269/src/id8_i/devices/sydor_tp4u.py#L16
+# lockin amp: https://github.com/APS-4ID-POLAR/polar_instrument/blob/80c0c3abbd676a00a489ff2a995f1befb7e4856c/src/instrument/devices/4idd/srs810.py#L43
 
 ## THIS ARE EXAMPLES OF OTHER DEVICES THAT YOU CAN USE
 # ophyd.Signal:
@@ -35,11 +40,6 @@ hklpy2.creator:
 # - name: slit1
 #   prefix: ioc:Slit1
 #   labels: ["slits", "baseline"]
-
-# hkl.SimulatedE4CV:
-# - name: sim4c
-#   prefix: ""
-#   labels: ["diffractometer"]
 
 # ophyd.scaler.ScalerCH:
 # - name: scaler1
@@ -67,3 +67,8 @@ hklpy2.creator:
 #           write_path_template: "/path/to/ioc/tmp/"
 #       - roi1
 #       - stats1
+
+# polar_common.devices.srs810.LockinDevice:
+# - name: lockin
+#   prefix: '4idd:SRS810:1:'
+#   labels: [ "detectors", "baseline" ]
