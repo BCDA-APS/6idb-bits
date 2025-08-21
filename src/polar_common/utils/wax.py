@@ -1,7 +1,7 @@
 from epics import caget, caput
 from pyRestTable import Table
 from polartools.load_data import load_catalog
-from instrument.startup import oregistry
+from apsbits.core.instrument_init import oregistry
 import warnings
 
 cat = load_catalog("4id_polar")
