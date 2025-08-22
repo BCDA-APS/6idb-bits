@@ -9,20 +9,47 @@ apstools.devices.SimulatedApsPssShutterWithStatus:
   labels: [ "shutters", "baseline" ]
 
 hklpy2.creator:
+- name: psic_sim
+  geometry: E6C
+  labels: [ "diffractometer", "hklpy2" ]
+  reals: [ "mu", "eta", "chi", "phi", "nu", "delta" ]  # simulator
 - name: psic
   geometry: E6C
   labels: [ "diffractometer", "hklpy2" ]
-#  prefix: "zgp:"  # FIXME Use correct PVs
-  reals: [ "mu", "eta", "chi", "phi", "nu", "delta" ]  # simulator
-#  reals:
-#    # MUST provide in canonical order
-#    # No defined motor assignments, pick different than fourc (m29-32)
-#    mu: m23
-#    eta: m24
-#    chi: m25
-#    phi: m26
-#    nu: m27
-#    delta: m28
+  prefix: "6idb1:"  
+  reals:
+    # MUST provide in canonical order
+    # No defined motor assignments, pick different than fourc (m29-32)
+    mu: m28
+    eta: m17
+    chi: m19
+    phi: m20
+    nu: m29
+    delta: m18
+- name: psic_psi
+  geometry: E6C
+  solver_kwargs: {"engine": "psi"}
+  labels: [ "diffractometer", "hklpy2" ]
+  prefix: "6idb1:"  
+  reals:
+    mu: m28
+    eta: m17
+    chi: m19
+    phi: m20
+    nu: m29
+    delta: m18
+- name: psic_q
+  geometry: E6C
+  solver_kwargs: {"engine": "q2"}
+  labels: [ "diffractometer", "hklpy2" ]
+  prefix: "6idb1:"  
+  reals:
+    mu: m28
+    eta: m17
+    chi: m19
+    phi: m20
+    nu: m29
+    delta: m18
 
 # TODO: Lakeshore, SRS570, Keithley DMM, Keithley source meter, capacitance bridge 2700
 # https://bcda-aps.github.io/apstools/latest/api/_devices.html#devices-other-support
