@@ -6,7 +6,7 @@ Instrument Github Repository to be used with BITS structure at the APS
 ## Installing your own BITS instrument
 
 ```bash
-export ENV_NAME=polar-bits
+export ENV_NAME=6idb-bits
 conda create -y -n $ENV_NAME python=3.11 hkl pyepics
 conda activate $ENV_NAME
 pip install apsbits
@@ -14,10 +14,12 @@ pip install apsbits
 
 
 ## Creating a New Instrument
+Using 6-ID-B (`id6_b`) as an example:
+
 ```bash
-export YOUR_INSTRUMENT_NAME=new_instrument
+export YOUR_INSTRUMENT_NAME=id6_b
 create-bits $YOUR_INSTRUMENT_NAME
-pip install -e .
+pip install -e .[all]
 ```
 
 
@@ -26,13 +28,13 @@ pip install -e .
 Activate the conda environment:
 
 ```bash
-conda activate polar-bit
+conda activate 6idb-bits
 ```
 
-To start the bluesky instrument session in a ipython execute the next command in a terminal:
+To start the bluesky instrument session in an ipython execute the next command in a terminal:
 
 ```bash
-ipython
+ipython -i -c "from id6_b.startup import *"
 ```
 
 ## Jupyter Notebook Start
@@ -51,6 +53,7 @@ please run the next commands inside an ipython session or a jupyter notebook
 after starting the data acquisition:
 
 ```py
+from id6_b.plans.sim_plans import *
 RE(sim_print_plan())
 RE(sim_count_plan())
 RE(sim_rel_scan_plan())
