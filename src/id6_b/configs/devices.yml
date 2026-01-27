@@ -19,6 +19,44 @@ apstools.devices.mb_creator:
     lens8: "m13"
     lens9: "m14"
     lens10: "m15"
+- name: mirror1
+  motors:
+    angle:
+      factory:
+        function: "id6_b.devices.pv_positioner.pvpositioner_factory"
+        readback_pv: "6idaSoft:M1yt2.C"
+        setpoint_pv: "6idaSoft:M1yangl"
+        done_pv: "6idaSoft:M1yDMOV"
+        done_value: 1
+        stop_pv: "6idaSoft:allstop"
+        stop_value: 1
+    y_avg:
+      factory:
+        function: "id6_b.devices.pv_positioner.pvpositioner_factory"
+        readback_pv: "6idaSoft:M1yt2.D"
+        setpoint_pv: "6idaSoft:M1yavg"
+        done_pv: "6idaSoft:M1yDMOV"
+        done_value: 1
+        stop_pv: "6idaSoft:allstop"
+        stop_value: 1
+    y_down:
+      factory:
+        function: "id6_b.devices.pv_positioner.pvpositioner_factory"
+        readback_pv: "6idaSoft:M1yt2.A"
+        setpoint_pv: "6idaSoft:M1ydn"
+        done_pv: "6idaSoft:M1yDMOV"
+        done_value: 1
+        stop_pv: "6idaSoft:allstop"
+        stop_value: 1
+    y_up:
+      factory:
+        function: "id6_b.devices.pv_positioner.pvpositioner_factory"
+        readback_pv: "6idaSoft:M1yt2.B"
+        setpoint_pv: "6idaSoft:M1yup"
+        done_pv: "6idaSoft:M1yDMOV"
+        done_value: 1
+        stop_pv: "6idaSoft:allstop"
+        stop_value: 1
 
 
 apsbits.utils.sim_creator.predefined_device:
