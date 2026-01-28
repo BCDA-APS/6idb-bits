@@ -24,7 +24,6 @@ from apsbits.core.instrument_init import make_devices
 from apsbits.core.run_engine_init import init_RE
 
 # Utility functions
-# FIXME:  from ??? import aps_dm_setup  ?
 from apsbits.utils.aps_functions import host_on_aps_subnet
 from apsbits.utils.baseline_setup import setup_baseline_stream
 
@@ -33,6 +32,7 @@ from apsbits.utils.config_loaders import load_config
 from apsbits.utils.helper_functions import register_bluesky_magics
 from apsbits.utils.helper_functions import running_in_queueserver
 from apsbits.utils.logging_setup import configure_logging
+from id6_b.utils.aps_functions import aps_dm_setup
 
 # Configuration block
 # Get the path to the instrument package
@@ -58,7 +58,7 @@ instrument, oregistry = init_instrument("guarneri")
 oregistry.clear()
 
 # Configure the session with callbacks, devices, and plans.
-# aps_dm_setup(iconfig.get("DM_SETUP_FILE"))
+aps_dm_setup(iconfig.get("DM_SETUP_FILE"))
 
 # Command-line tools, such as %wa, %ct, ...
 register_bluesky_magics()
