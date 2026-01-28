@@ -11,7 +11,6 @@ APS utility helper functions
 import logging
 import os
 import pathlib
-import socket
 
 logger = logging.getLogger(__name__)
 
