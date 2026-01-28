@@ -6,7 +6,9 @@ ICONFIG_VERSION: 2.0.1
 # Add additional configuration for use with your instrument.
 
 ### The short name for the databroker catalog.
-DATABROKER_CATALOG: &databroker_catalog 6idb
+DATABROKER_CATALOG: 6idb
+TILED_PROFILE_NAME: raw
+TILED_PATH_NAME: /raw
 
 ### RunEngine configuration
 RUN_ENGINE:
@@ -14,7 +16,6 @@ RUN_ENGINE:
         beamline_id: 6-ID-B
         instrument_name: APS station 6-ID-B
         proposal_id: commissioning
-        databroker_catalog: *databroker_catalog
 
     ### EPICS PV to use for the `scan_id`.
     ### Default: `RE.md["scan_id"]` (not using an EPICS PV)
